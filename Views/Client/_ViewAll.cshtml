@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ClientManagementSystemMVC.Models.ClientModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeAddress)
+            </th>
+            <th>
+                <a onclick="showInPopUp('@Url.Action("AddOrEdit","Client",null,Context.Request.Scheme)','New Client')" class="btn btn-success text-white"><i class="fa-solid fa-plus"></i>New Client</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HomeAddress)
+                </td>
+                <td>
+                    <a onclick="showInPopUp('@Url.Action("AddOrEdit","Client",new {id = item.Id},Context.Request.Scheme)','Update Client')" class="d-inline btn btn-info text-white"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+                    <form asp-action="SendEmail" asp-route-id="@item.Id" onsubmit="return SendEmailAjax(this)" class="d-inline">
+                        <input type="hidden" asp-for="@item.Id" />
+                        <div class="input-container">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <input type="submit" value="Send Email" class="btn btn-info text-white small-button" />
+                        </div>
+                    </form>
+                    <form asp-action="Delete" asp-route-id="@item.Id" onsubmit="return jqueryAjaxDelete(this)" class="d-inline">
+                        <input type="hidden" asp-for="@item.Id" />
+                        <div class="input-container">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <input type="submit" value="Delete" class="btn btn-danger small-button" />
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

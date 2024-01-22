@@ -1,0 +1,11 @@
+﻿global using System.ComponentModel.DataAnnotations.Schema;
+global using System.ComponentModel.DataAnnotations;
+global using ClientManagementSystemMVC.Models;
+global using Microsoft.EntityFrameworkCore;
+global using ClientManagementSystemMVC.Context;
+global using Microsoft.AspNetCore.Mvc.Rendering;
+global using Microsoft.AspNetCore.Mvc.ViewEngines;
+global using Microsoft.AspNetCore.Mvc.ViewFeatures;
+global using Microsoft.AspNetCore.Mvc;
+global using System.Net;
+global using System.Net.Mail;

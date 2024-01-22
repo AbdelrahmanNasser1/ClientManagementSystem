@@ -1,0 +1,11 @@
+﻿@model IEnumerable<ClientManagementSystemMVC.Models.ClientModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center"><i class="fa-solid fa-person text-success"></i>Client Management</h1>
+
+<div id="view-all">
+    @await Html.PartialAsync("_ViewAll",Model)
+</div>
