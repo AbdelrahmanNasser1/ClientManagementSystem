@@ -124,7 +124,7 @@ a.btn:hover {
 
 .input-container i {
     position: absolute;
-    left: 10px;
+    left: 8px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -134,6 +134,9 @@ a.btn:hover {
     padding-left: 30px;
 }
 .small-button {
-    padding: 8px 12px; 
-    font-size: 14px; 
+    padding: 4px 8px; 
+    font-size: 13px; 
+}
+.edit-button{
+    font-size: 15px
 }
